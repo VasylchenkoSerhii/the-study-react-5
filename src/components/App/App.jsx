@@ -1,15 +1,16 @@
-import { Box } from "components/Box/Box";
-import SharedLayout from "components/SharedLayout/SharedLayout";
 import { Route, Routes } from "react-router-dom";
+import SharedLayout from "components/SharedLayout/SharedLayout";
+import Home from "pages/Home/Home";
 
 export default function App() {
   return (
-    <Box>
+    <>
       <Routes>
         <Route path="/" element={<SharedLayout />}>
+          <Route index element={<Home />} />
         </Route>
       </Routes>
-    </Box>
+    </>
   );
 };
 
