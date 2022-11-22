@@ -3,7 +3,9 @@ import { NavLink, Outlet } from "react-router-dom";
 
 export default function SharedLayout() {
     return (
-        <Box>
+        <Box
+            p={3}
+        >
             <Box as="header">
                 <Box as="nav" display="flex">
                     <NavLink to="/" end>Home</NavLink>
