@@ -4,6 +4,7 @@ import Home from "pages/Home/Home";
 import Movies from "pages/Movies/Movies";
 import MovieDetailes from "pages/MovieDetailes/MovieDetailes";
 import Cast from "components/Cast/Cast";
+import Reviews from "components/Reviews/Reviews";
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
           <Route path="movies" element={<Movies />} />
           <Route path="movies/:movieId" element={<MovieDetailes />}>
             <Route path="cast" element={<Cast />} />
+            <Route path="reviews" element={<Reviews />} />
           </Route>
         </Route>
       </Routes>

@@ -28,7 +28,7 @@ export default function MovieDetailes() {
             {movie && (
                 <>
                     <Box display="flex">
-                        <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt={movie.title} />
+                        <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.title} />
                         <Box pt={4} ml={4}>
                             <h2>{movie.title} ({movie.release_date.slice(0, 4)})</h2>
                             <p>Оцінка глядачів: {String(movie.vote_average).slice(0, 3)}</p>
@@ -39,10 +39,10 @@ export default function MovieDetailes() {
                         </Box>
                     </Box>
                     <Box mt={4}>
-                        <p>Додаткова інформація</p>  
+                        <h3>Додаткова інформація</h3>  
                         <ul>
                             <li><NavLink to={`cast`}>Актори</NavLink></li>
-                            <li></li>
+                            <li><NavLink to={`reviews`}>Рецензії</NavLink></li>
                         </ul>
                     </Box>
                     <Outlet />
