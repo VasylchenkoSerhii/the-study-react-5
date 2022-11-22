@@ -1,8 +1,9 @@
 import { Box } from "components/Box/Box";
 import { useState, useEffect } from "react";
 import { getTrendingMovies } from "services/api";
-import Loader from "components/Loader/Loader";
 import { NavLink } from "react-router-dom";
+import { Title } from "./TrendingList.styled";
+import Loader from "components/Loader/Loader";
 
 export default function TrendingList() {
 
@@ -32,7 +33,7 @@ export default function TrendingList() {
                         <li key={id}>
                             <NavLink to={`movies/${id}`}>
                                 <img src={`https://image.tmdb.org/t/p/w200${poster_path}`} alt={title} />
-                                <p>{title}</p>
+                                <Title>{title}</Title>
                             </NavLink>
                         </li>
                     )}

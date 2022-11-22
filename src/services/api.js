@@ -38,3 +38,12 @@ export const getReviewsById = async id => {
             console.log(error)
     };
 };
+
+export const getMoviesByQuery = async query => {
+    try {
+        const response = await axios.get(`${BASE_URL}/search/movie?query=${query}&api_key=${KEY}&language=en&page=1`);
+        return response.data;
+    } catch (error) {
+            console.log(error)
+    };
+};
