@@ -1,6 +1,8 @@
 export const theme = {
   colors: {
     black: '#000',
+    headerLink: '#fee8ed',
+    accentHeaderLink: '#ebbdc7',
     white: '#fff',
     text: '#2a2a2a',
     background: '#fff',
@@ -19,8 +21,9 @@ export const theme = {
     xs: '12px',
     s: '14px',
     m: '16px',
-    l: '32px',
-    xl: '64px',
+    l: '26px',
+    xl: '36px',
+    xxl: '56px'
   },
   fontWeights: {
     normal: 400,

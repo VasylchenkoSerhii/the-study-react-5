@@ -1,5 +1,9 @@
 @import-normalize; /* bring in normalize.css styles */
 
+:root {
+  --toastify-color-dark: #7d0cb1;
+}
+
 h1,
 h2,
 h3,

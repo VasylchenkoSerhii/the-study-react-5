@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
-import { useParams, NavLink, Outlet } from "react-router-dom";
+import { useParams, NavLink, Outlet, useLocation } from "react-router-dom";
 import { getMovieById } from "services/api";
-import Loader from "components/Loader/Loader";
+import { BiArrowBack } from "react-icons/bi";
 import { Box } from "components/Box/Box";
+import Loader from "components/Loader/Loader";
+
 
 export default function MovieDetailes() {
 
     const { movieId } = useParams();
+    const location = useLocation();
 
     const [movie, setMovie] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
@@ -27,6 +30,7 @@ export default function MovieDetailes() {
         <main>
             {movie && (
                 <>
+                    <NavLink to={location.state.from}><BiArrowBack size={30} /> Повернутися</NavLink>
                     <Box display="flex">
                         <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.title} />
                         <Box pt={4} ml={4}>

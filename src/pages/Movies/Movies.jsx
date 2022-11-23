@@ -1,22 +1,46 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { getMoviesByQuery } from "services/api";
+import { useSearchParams } from "react-router-dom";
+import { toast } from 'react-toastify';
 import Loader from "components/Loader/Loader";
 import MoviesList from "components/MoviesList/MoviesList";
 
+
 export default function Movies() {
+
     const [movies, setMovies] = useState([]);
     const [query, setQuery] = useState("");
     const [isLoading, setIsLoading] = useState(false);
 
-    const handleSubmit = async e => {
+
+    const [searchParams, setSearchParams] = useSearchParams();
+    const queryParams = searchParams.get("query") ?? "";
+
+    useEffect(() => {
+
+        if (queryParams === "") {
+            return;
+        };
+        
+        const fetchMoviesByQuery = async () => {
+            setIsLoading(true);
+            const data = await getMoviesByQuery(queryParams);
+            setMovies(data.results);
+            setIsLoading(false);
+        };
+
+        fetchMoviesByQuery();
+    }, [queryParams])
+
+    const handleSubmit = e => {
         e.preventDefault()
 
-        setIsLoading(true);
-        const data = await getMoviesByQuery(query.trim());
-        setMovies(data.results);
-        setIsLoading(false);
-
-        setQuery("")
+        if (query === "") {
+            toast("Введіть назву фільма");
+            return;
+        };
+        setSearchParams(query !== "" ? { query } : {});
+        setQuery("");
     };
 
     return (
@@ -26,7 +50,7 @@ export default function Movies() {
                     value={query}
                     type="text"
                     placeholder="Знайти фільм"
-                    onChange={e => setQuery(e.target.value)}
+                    onChange={e => setQuery(e.target.value.trim())}
                 />
                 <button type="submit">
                     Знайти
