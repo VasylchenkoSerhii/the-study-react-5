@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { getTrendingMovies } from "services/api";
-import { NavLink, useLocation } from "react-router-dom";
-import { Title, List } from "./TrendingList.styled";
+import { useLocation } from "react-router-dom";
+import { Title, List, ListItem, Link } from "./TrendingList.styled";
+import defaultImage from "../../img/default-poster.jpg";
 import Loader from "components/Loader/Loader";
 
 export default function TrendingList() {
@@ -21,17 +22,21 @@ export default function TrendingList() {
         fetchMovies();
     }, []);
 
+
     return (
         <>
             {trending && (
                 <List>
                     {trending.map(({ title, id, poster_path }) =>
-                        <li key={id}>
-                            <NavLink to={`movies/${id}`} state={{from: location}}>
-                                <img src={`https://image.tmdb.org/t/p/w200${poster_path}`} alt={title} />
+                        <ListItem key={id}>
+                            <Link to={`movies/${id}`} state={{ from: location }}>
+                                {poster_path
+                                    ? <img src={`https://image.tmdb.org/t/p/w300${poster_path}`} alt={title} />
+                                : <img src={defaultImage} alt={title} />}
+                                
                                 <Title>{title}</Title>
-                            </NavLink>
-                        </li>
+                            </Link>
+                        </ListItem>
                     )}
                 </List>)}
             {isLoading && <Loader />}

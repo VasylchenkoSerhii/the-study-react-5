@@ -3,6 +3,7 @@ import { useParams, NavLink, Outlet, useLocation } from "react-router-dom";
 import { getMovieById } from "services/api";
 import { BiArrowBack } from "react-icons/bi";
 import { Box } from "components/Box/Box";
+import defaultImage from "../../img/default-poster.jpg";
 import Loader from "components/Loader/Loader";
 
 
@@ -25,23 +26,31 @@ export default function MovieDetailes() {
         fetchMovieById();
     }, [movieId]);
 
+    if (!movie) {
+        return;
+    };
+
+    const { poster_path, title, vote_average, overview, genres, release_date } = movie;
+    const movieOverview = overview === "" ? "Дуже скоро з'явиться опис" : overview;
+    const imgSrc = poster_path ? `https://image.tmdb.org/t/p/w300${poster_path}` : defaultImage;
+
     
     return (
         <main>
             {movie && (
                 <>
                     <NavLink to={location.state.from}><BiArrowBack size={30} /> Повернутися</NavLink>
-                    <Box display="flex">
-                        <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.title} />
+                    <div>
+                        <img src={imgSrc} alt={title} />
                         <Box pt={4} ml={4}>
-                            <h2>{movie.title} ({movie.release_date.slice(0, 4)})</h2>
-                            <p>Оцінка глядачів: {String(movie.vote_average).slice(0, 3)}</p>
+                            <h2>{title} ({release_date.slice(0, 4)})</h2>
+                            <p>Оцінка глядачів: {String(vote_average).slice(0, 3)}</p>
                             <h3>Опис</h3>
-                            <p>{movie.overview}</p>
+                            <p>{movieOverview}</p>
                             <h3>Жанр</h3>
-                            <p>{movie.genres.map(({name}) => name).join(", ")}</p>
+                            <p>{genres.map(({name}) => name).join(", ")}</p>
                         </Box>
-                    </Box>
+                    </div>
                     <Box mt={4}>
                         <h3>Додаткова інформація</h3>  
                         <ul>

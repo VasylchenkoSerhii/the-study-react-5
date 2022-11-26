@@ -2,7 +2,6 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 export const Link = styled(NavLink)`
-    font-family: ${p => p.theme.fonts.monospace};
     font-size: ${p => p.theme.fontSizes.l};
     color: ${p => p.theme.colors.headerLink};
     transition: transform 250ms linear, color 250ms linear;
@@ -16,4 +15,9 @@ export const Link = styled(NavLink)`
     &:not(:first-child) {
         margin-left: ${p => `${p.theme.space[4]}px`};
     }
+
+    @media screen and (min-width: 768px) {
+        font-size: ${p => p.theme.fontSizes.xl};
+    }
+
 `;

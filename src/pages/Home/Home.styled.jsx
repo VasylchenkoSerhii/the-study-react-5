@@ -9,7 +9,6 @@ export const Title = styled.h1`
     @media screen and (min-width: 320px) {
         margin-bottom: 20px;
         text-align: center;
-        font-family: ${p => p.theme.fonts.monospace};
         font-size: ${p => p.theme.fontSizes.l};
         color: ${p => p.theme.colors.text}
     }
