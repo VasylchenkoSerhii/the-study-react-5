@@ -3,6 +3,7 @@ import { useParams, NavLink, Outlet, useLocation } from "react-router-dom";
 import { getMovieById } from "services/api";
 import { BiArrowBack } from "react-icons/bi";
 import { Box } from "components/Box/Box";
+import { Link } from "./MovieDetailes.styled";
 import defaultImage from "../../img/default-poster.jpg";
 import Loader from "components/Loader/Loader";
 
@@ -36,10 +37,10 @@ export default function MovieDetailes() {
 
     
     return (
-        <main>
+        <Box as="main" pt={5}>
             {movie && (
                 <>
-                    <NavLink to={location.state.from}><BiArrowBack size={30} /> Повернутися</NavLink>
+                    <Link to={location.state.from}><BiArrowBack size={30} /> Повернутися</Link>
                     <div>
                         <img src={imgSrc} alt={title} />
                         <Box pt={4} ml={4}>
@@ -62,6 +63,6 @@ export default function MovieDetailes() {
                 </>
             )}
             {isLoading && <Loader />}
-        </main>
+        </Box>
     );
 };
