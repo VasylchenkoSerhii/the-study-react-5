@@ -24,14 +24,17 @@ export const List = styled.ul`
 export const ListItem = styled.li`
     max-width: 300px;
     border-bottom: ${p => p.theme.borders.bold};
+    color: ${p => p.theme.colors.text};
     border-color: #9202d4;
     transition: transform 250ms linear,
     background-color 250ms linear,
-    border-radius 250ms linear;
+    border-radius 250ms linear,
+    color 250ms linear;
 
     &:hover,
     &:focus {
         transform: scale(1.1);
+        color: ${p => p.theme.colors.white};
         background-color: #b938f4;
         border-radius: ${p => p.theme.radii.normal};
     }
@@ -59,5 +62,6 @@ export const Title = styled.p`
     padding: 5px;
     text-align: center;
     font-size: ${p => p.theme.fontSizes.m};
-    font-weight: ${P => P.theme.fontWeights.bold}
+    font-weight: ${P => P.theme.fontWeights.bold};
+
 `;

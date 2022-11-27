@@ -17,7 +17,7 @@ export default function SharedLayout() {
                 bg="rgb(185,56,244)"
                 borderBottom="2px solid #9202d4"
                 borderRadius="normal"
-                boxShadow="0px 5px 5px 0px rgba(146,2,212,1)"
+                boxShadow="0px 5px 5px 0px rgba(0, 0, 0,0.48)"
             >
                 <Box
                     as="nav"
@@ -25,7 +25,7 @@ export default function SharedLayout() {
                     justifyContent="start"
                 >
                     <Link to="/" end>Home</Link>
-                    <Link to="/Movies">Movies</Link>
+                    <Link to="/movies">Movies</Link>
                 </Box>
             </Box>
             <Outlet />

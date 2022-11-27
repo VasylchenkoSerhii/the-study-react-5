@@ -10,7 +10,7 @@ export default function CastList({cast}) {
           justifyContent="center"
           columnGap={4}
           rowGap="20px"
-      >
+    >
           {cast.map(({ character, id, name, profile_path }) => (
               <li key={id}>
                   {profile_path
