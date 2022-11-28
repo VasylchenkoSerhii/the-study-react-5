@@ -1,7 +1,11 @@
 import styled from "styled-components";
 
 export const Main = styled.main`
-    padding-top: 40px;
+    padding-top: 20px;
+
+    @media screen and (min-width: 1200px) {
+        padding-top: 40px;
+    }
 
 `;
 

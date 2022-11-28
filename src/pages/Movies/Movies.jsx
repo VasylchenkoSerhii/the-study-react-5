@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { getMoviesByQuery } from "services/api";
 import { useSearchParams } from "react-router-dom";
 import { toast } from 'react-toastify';
+import { Main, SearchForm, FormInput, FormBtn } from "./Movies.styled";
 import Loader from "components/Loader/Loader";
 import MoviesList from "components/MoviesList/MoviesList";
 
@@ -44,20 +45,20 @@ export default function Movies() {
     };
 
     return (
-        <main>
-            <form onSubmit={handleSubmit}>
-                <input
+        <Main>
+            <SearchForm onSubmit={handleSubmit}>
+                <FormInput
                     value={query}
                     type="text"
                     placeholder="Знайти фільм"
                     onChange={e => setQuery(e.target.value.trim())}
                 />
-                <button type="submit">
+                <FormBtn type="submit">
                     Знайти
-                </button>
-            </form>
+                </FormBtn>
+            </SearchForm>
             {movies.length > 0 && <MoviesList movies={movies} />}
             {isLoading && <Loader />}
-        </main>
+        </Main>
     );
 };

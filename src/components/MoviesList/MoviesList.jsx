@@ -7,7 +7,6 @@ export default function TrendingList({movies}) {
 
     const location = useLocation();
 
-
     return (
         <>
             {movies.length > 0 && (
