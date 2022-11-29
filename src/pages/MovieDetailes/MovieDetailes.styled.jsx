@@ -41,9 +41,6 @@ export const WripperCard = styled.div`
 
     @media screen and (min-width: 768px) {
         display: flex;
-    }
-
-    @media screen and (min-width: 1200px) {
         margin-bottom: ${p => `${p.theme.space[4]}px`};
     }
 `;
@@ -92,6 +89,7 @@ export const Title = styled.h3`
     }
 `;
 
+
 export const Overview = styled.p`
     margin-bottom: ${p => `${p.theme.space[3]}px`};
 
@@ -99,7 +97,6 @@ export const Overview = styled.p`
         margin-bottom: ${p => `${p.theme.space[4]}px`};
     }
 `;
-
 
 export const AdditionalInformation = styled.div`
     font-size: ${p => p.theme.fontSizes.m};
@@ -110,6 +107,18 @@ export const AdditionalInformation = styled.div`
     }
 `;
 
+export const AdditionalTitle = styled.h3`
+    margin-bottom: ${p => `${p.theme.space[3]}px`};
+    text-align: center;
+
+    @media screen and (min-width: 768px) {
+        font-size: ${p => p.theme.fontSizes.l};
+    }
+
+    @media screen and (min-width: 1200px) {
+        margin-bottom: ${p => `${p.theme.space[4]}px`};
+    }
+`;
 
 export const LinkInformation = styled(NavLink)`
     transition: color 250ms linear;

@@ -4,6 +4,12 @@
   --toastify-color-dark: #7d0cb1;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 h1,
 h2,
 h3,

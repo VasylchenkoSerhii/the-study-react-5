@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useParams, Outlet, useLocation } from "react-router-dom";
 import { getMovieById } from "services/api";
 import { BiArrowBack } from "react-icons/bi";
@@ -13,7 +13,8 @@ import {
     Title,
     Overview,
     AdditionalInformation,
-    LinkInformation
+    LinkInformation,
+    AdditionalTitle
 } from "./MovieDetailes.styled";
 import defaultImage from "../../img/default-poster.jpg";
 import Loader from "components/Loader/Loader";
@@ -25,14 +26,11 @@ export default function MovieDetailes() {
     const location = useLocation();
 
     const [movie, setMovie] = useState(null);
-    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         const fetchMovieById = async () => {
-            setIsLoading(true);
             const data = await getMovieById(movieId);
             setMovie(data);
-            setIsLoading(false);
         };
 
         fetchMovieById();
@@ -45,13 +43,13 @@ export default function MovieDetailes() {
     const { poster_path, title, vote_average, overview, genres, release_date } = movie;
     const movieOverview = overview === "" ? "Дуже скоро з'явиться опис" : overview;
     const imgSrc = poster_path ? `https://image.tmdb.org/t/p/w300${poster_path}` : defaultImage;
-    console.log(location.state)
+    const backLinkHref = location.state?.from ?? "/movies";
     
     return (
         <Box as="main" pt={5}>
             {movie && (
                 <>
-                    <Link to={location.state?.from}><BiArrowBack size={30} /> Повернутися</Link>
+                    <Link to={backLinkHref}><BiArrowBack size={30} /> Повернутися</Link>
                     <WripperCard>
                         <img src={imgSrc} alt={title} />
                         <WripperDescription>
@@ -60,20 +58,25 @@ export default function MovieDetailes() {
                             <Title>Опис</Title>
                             <Overview>{movieOverview}</Overview>
                             <Title>Жанр</Title>
-                            <p>{genres.map(({name}) => name).join(", ")}</p>
+                            <p>{genres.map(({ name }) => name).join(", ")}</p>
                         </WripperDescription>
                     </WripperCard>
                     <AdditionalInformation>
-                        <Title>Додаткова інформація</Title>  
-                        <ul>
-                            <li><LinkInformation to={`cast`}>Актори</LinkInformation></li>
-                            <li><LinkInformation to={`reviews`}>Рецензії</LinkInformation></li>
-                        </ul>
+                        <AdditionalTitle>Додаткова інформація</AdditionalTitle>
+                        <Box
+                            display="flex"
+                            justifyContent="space-evenly"
+                        >
+                            <li><LinkInformation to="cast" state={{ from: backLinkHref }}>Актори</LinkInformation></li>
+                            <li><LinkInformation to="reviews" state={{ from: backLinkHref }}>Рецензії</LinkInformation></li>
+                        </Box>
                     </AdditionalInformation>
-                    <Outlet />
+                    <Suspense fallback={<Loader />}>
+                        <Outlet />
+                    </Suspense>
                 </>
             )}
-            {isLoading && <Loader />}
         </Box>
     );
 };
+

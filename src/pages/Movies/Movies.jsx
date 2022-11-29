@@ -26,6 +26,13 @@ export default function Movies() {
         const fetchMoviesByQuery = async () => {
             setIsLoading(true);
             const data = await getMoviesByQuery(queryParams);
+
+            if (data.results.length === 0) {
+                toast("Не знайдено жодного фільму");
+                setIsLoading(false);
+                return;
+            };
+
             setMovies(data.results);
             setIsLoading(false);
         };

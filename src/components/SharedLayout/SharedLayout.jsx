@@ -2,6 +2,8 @@ import { Box } from "components/Box/Box";
 import { Outlet } from "react-router-dom";
 import { Link } from "./SharedLayout.styled";
 import { ToastContainer } from 'react-toastify';
+import { Suspense } from "react";
+import Loader from "components/Loader/Loader";
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function SharedLayout() {
@@ -28,7 +30,10 @@ export default function SharedLayout() {
                     <Link to="/movies">Movies</Link>
                 </Box>
             </Box>
-            <Outlet />
+            <Suspense fallback={<Loader />}>
+                <Outlet />
+            </Suspense>
+            
             <ToastContainer
                 position="top-right"
                 autoClose={1500}
