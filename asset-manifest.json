@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/the-study-react-5/static/css/main.2d528668.css",
-    "main.js": "/the-study-react-5/static/js/main.8592ac13.js",
+    "main.js": "/the-study-react-5/static/js/main.e088fedb.js",
     "static/js/485.e977f6bf.chunk.js": "/the-study-react-5/static/js/485.e977f6bf.chunk.js",
-    "static/js/691.fa530b90.chunk.js": "/the-study-react-5/static/js/691.fa530b90.chunk.js",
-    "static/js/877.13f378a6.chunk.js": "/the-study-react-5/static/js/877.13f378a6.chunk.js",
+    "static/js/691.34e2ba95.chunk.js": "/the-study-react-5/static/js/691.34e2ba95.chunk.js",
+    "static/js/877.f537baf7.chunk.js": "/the-study-react-5/static/js/877.f537baf7.chunk.js",
     "static/js/719.f8484cde.chunk.js": "/the-study-react-5/static/js/719.f8484cde.chunk.js",
     "static/media/default-poster.jpg": "/the-study-react-5/static/media/default-poster.b98378e2328f30af55fe.jpg",
     "static/media/default-photo.jpg": "/the-study-react-5/static/media/default-photo.61b2c0df9fe54a6525b5.jpg",
     "index.html": "/the-study-react-5/index.html",
     "main.2d528668.css.map": "/the-study-react-5/static/css/main.2d528668.css.map",
-    "main.8592ac13.js.map": "/the-study-react-5/static/js/main.8592ac13.js.map",
+    "main.e088fedb.js.map": "/the-study-react-5/static/js/main.e088fedb.js.map",
     "485.e977f6bf.chunk.js.map": "/the-study-react-5/static/js/485.e977f6bf.chunk.js.map",
-    "691.fa530b90.chunk.js.map": "/the-study-react-5/static/js/691.fa530b90.chunk.js.map",
-    "877.13f378a6.chunk.js.map": "/the-study-react-5/static/js/877.13f378a6.chunk.js.map",
+    "691.34e2ba95.chunk.js.map": "/the-study-react-5/static/js/691.34e2ba95.chunk.js.map",
+    "877.f537baf7.chunk.js.map": "/the-study-react-5/static/js/877.f537baf7.chunk.js.map",
     "719.f8484cde.chunk.js.map": "/the-study-react-5/static/js/719.f8484cde.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2d528668.css",
-    "static/js/main.8592ac13.js"
+    "static/js/main.e088fedb.js"
   ]
 }
