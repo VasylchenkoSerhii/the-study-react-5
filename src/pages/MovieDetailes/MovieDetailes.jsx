@@ -49,7 +49,7 @@ export default function MovieDetailes() {
         <Box as="main" pt={5}>
             {movie && (
                 <>
-                    <Link to={backLinkHref}><BiArrowBack size={30} /> Повернутися</Link>
+                    <Link to={backLinkHref}><BiArrowBack /> Повернутися</Link>
                     <WripperCard>
                         <img src={imgSrc} alt={title} />
                         <WripperDescription>
@@ -64,8 +64,10 @@ export default function MovieDetailes() {
                     <AdditionalInformation>
                         <AdditionalTitle>Додаткова інформація</AdditionalTitle>
                         <Box
+                            as="ul"
                             display="flex"
                             justifyContent="space-evenly"
+                            pb={5}
                         >
                             <li><LinkInformation to="cast" state={{ from: backLinkHref }}>Актори</LinkInformation></li>
                             <li><LinkInformation to="reviews" state={{ from: backLinkHref }}>Рецензії</LinkInformation></li>

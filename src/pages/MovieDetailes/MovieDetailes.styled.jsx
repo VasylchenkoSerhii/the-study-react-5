@@ -108,7 +108,7 @@ export const AdditionalInformation = styled.div`
 `;
 
 export const AdditionalTitle = styled.h3`
-    margin-bottom: ${p => `${p.theme.space[3]}px`};
+    margin-bottom: ${p => `${p.theme.space[5]}px`};
     text-align: center;
 
     @media screen and (min-width: 768px) {
@@ -121,10 +121,18 @@ export const AdditionalTitle = styled.h3`
 `;
 
 export const LinkInformation = styled(NavLink)`
-    transition: color 250ms linear;
+    max-width: 125px;
+    margin-bottom: ${p => `${p.theme.space[3]}px`};
+    padding: ${p => `${p.theme.space[3]}px`};
+    border: ${p => p.theme.borders.normal} ${p => p.theme.colors.accent};
+    border-radius: ${p => p.theme.radii.normal} ;
+    color: ${p => p.theme.colors.text} ;
+    transition: background-color 250ms linear,
+    color 250ms linear;
 
     &:hover,
     &:focus {
-        color: ${p => p.theme.colors.accent};
+        background-color: ${p => p.theme.colors.accent};
+        color: ${p => p.theme.colors.white};
     }
 `;

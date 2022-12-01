@@ -47,7 +47,7 @@ export default function Movies() {
             toast("Введіть назву фільма");
             return;
         };
-        setSearchParams(query !== "" ? { query } : {});
+        setSearchParams(query.trim() !== "" ? { query } : {});
         setQuery("");
     };
 
@@ -58,7 +58,7 @@ export default function Movies() {
                     value={query}
                     type="text"
                     placeholder="Знайти фільм"
-                    onChange={e => setQuery(e.target.value.trim())}
+                    onChange={e => setQuery(e.target.value)}
                 />
                 <FormBtn type="submit">
                     Знайти
